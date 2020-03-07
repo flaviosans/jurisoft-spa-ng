@@ -11,9 +11,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ConfigComponent } from './pages/config/config.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PessoaEditComponent } from './pessoa/pessoa-edit/pessoa-edit.component';
-import { PessoaFormComponent } from './pessoa/pessoa-form/pessoa-form.component';
 import {FormsModule} from '@angular/forms';
+import { PessoaEditComponent } from './pessoa/pessoa-edit/pessoa-edit.component';
+import { PessoaCreateComponent } from './pessoa/pessoa-create/pessoa-create.component';
+import { PessoaFormComponent } from './pessoa/pessoa-form/pessoa-form.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {FormsModule} from '@angular/forms';
     ConfigComponent,
     BreadcrumbComponent,
     PessoaEditComponent,
+    PessoaCreateComponent,
     PessoaFormComponent
   ],
   imports: [

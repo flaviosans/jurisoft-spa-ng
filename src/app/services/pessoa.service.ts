@@ -26,7 +26,11 @@ export class PessoaService {
   }
 
   savePessoa(pessoa: Pessoa): Observable<Pessoa> {
-    return this.http.post<Pessoa>(`${this.pessoasUrl}`, JSON.stringify(pessoa), {headers} );
+    if (!!pessoa.id) {
+      return this.updatePessoa(pessoa.id, pessoa);
+    } else {
+      return this.http.post<Pessoa>(`${this.pessoasUrl}`, JSON.stringify(pessoa), {headers});
+    }
   }
 
   updatePessoa(pessoaId: string, pessoa: Pessoa): Observable<any>{
