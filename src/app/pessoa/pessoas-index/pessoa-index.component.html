@@ -1,38 +1,9 @@
-<div class="" *ngIf="pessoas">
-  <div class="table-container">
-    <table class="table">
-      <thead>
-      <th>Ações</th>
-      <th>#</th>
-      <th>Nome</th>
-      <th>CPF</th>
-      <th>RG</th>
-      <th>Cart. Trabalho</th>
-      <th>Profissão</th>
-      </thead>
-      <tbody>
-      <tr *ngFor="let pessoa of pessoas.content">
-        <td><a (click)="deletePessoa(pessoa)">Apagar</a> | <a [routerLink]="['/pessoas', pessoa.id]">Editar</a></td>
-        <td><a [routerLink]="['/pessoas', pessoa.id]">{{pessoa.id}}</a></td>
-        <td>{{pessoa.nome}}</td>
-        <td>{{pessoa.cpf}}</td>
-        <td>{{pessoa.rg}}</td>
-        <td>{{pessoa.carteiraDeTrabalho}}</td>
-        <td>{{pessoa.profissao}}</td>
-      </tr>
-      </tbody>
-    </table>
-
+<div class="columns">
+  <div class="column">
+    <app-pessoa-list (selected)="setPessoa($event)"></app-pessoa-list>
   </div>
-  <nav class="pagination" role="navigation" aria-label="pagination">
-    <a (click)="navigate(-1)" class="pagination-previous">Anterior</a>
-    <a (click)="navigate(1)" class="pagination-next">Próximo</a>
-    <ul class="pagination-list">
-      <li>
-        <a class="pagination-link" [attr.aria-labelledby]="'Goto page pessoas.totalPages'">{{pessoas.totalPages}}</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="column">
+    <app-pessoa-view [pessoa]="pessoa"></app-pessoa-view>
+  </div>
 </div>
-
 
