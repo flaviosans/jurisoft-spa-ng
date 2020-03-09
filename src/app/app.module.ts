@@ -15,6 +15,8 @@ import {FormsModule} from '@angular/forms';
 import { PessoaEditComponent } from './pessoa/pessoa-edit/pessoa-edit.component';
 import { PessoaCreateComponent } from './pessoa/pessoa-create/pessoa-create.component';
 import { PessoaFormComponent } from './pessoa/pessoa-form/pessoa-form.component';
+import { PessoaViewComponent } from './pessoa-view/pessoa-view.component';
+import { PessoaListComponent } from './pessoa-list/pessoa-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { PessoaFormComponent } from './pessoa/pessoa-form/pessoa-form.component'
     BreadcrumbComponent,
     PessoaEditComponent,
     PessoaCreateComponent,
-    PessoaFormComponent
+    PessoaFormComponent,
+    PessoaViewComponent,
+    PessoaListComponent
   ],
   imports: [
     BrowserModule,

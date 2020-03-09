@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PessoaService } from 'src/app/services/pessoa.service';
-import {HttpParams} from '@angular/common/http';
+import {Component, Input, OnInit} from '@angular/core';
 import {Pessoa} from '../../models/pessoa/pessoa';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-pessoas-index',
@@ -11,27 +8,12 @@ import {Observable} from 'rxjs';
 })
 export class PessoaIndexComponent implements OnInit {
 
-  pessoas: Pageable<Pessoa>;
-  currentPage: number;
+  pessoa: Pessoa = {} as Pessoa;
+  constructor() { }
 
-  constructor(private pessoaService: PessoaService) { }
+  ngOnInit() { }
 
-  ngOnInit() { this.getPessoas(); }
-
-  navigate(step: number = 1) {
-    step = this.pessoas.number + step;
-    this.getPessoas(step.toString());
-  }
-
-  getPessoas(page: string = '0') {
-    this.pessoaService.getPessoas(page).subscribe(p => {
-      this.pessoas = p;
-    });
-  }
-
-  deletePessoa(pessoa: Pessoa) {
-    this.pessoaService.deletePessoa(pessoa).subscribe(p =>{
-      this.getPessoas(this.pessoas.number.toString());
-    });
+  setPessoa(pessoa: Pessoa){
+    this.pessoa = pessoa;
   }
 }
