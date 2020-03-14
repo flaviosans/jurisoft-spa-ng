@@ -3,26 +3,22 @@
     <thead>
     <th>Ações</th>
     <th>Nome</th>
-    <th>CPF</th>
-    <th>RG</th>
     </thead>
     <tbody>
     <tr *ngFor="let pessoa of pessoas.content">
       <td><a (click)="deletePessoa(pessoa)">Apagar</a> | <a [routerLink]="['/pessoas', pessoa.id]">Editar</a></td>
       <td><a (click)="selectPessoa(pessoa)">{{pessoa.nome}}</a></td>
-      <td>{{pessoa.cpf}}</td>
-      <td>{{pessoa.rg}}</td>
     </tr>
     </tbody>
   </table>
 
 </div>
 <nav class="pagination" role="navigation" aria-label="pagination">
-  <a (click)="navigate(-1)" class="pagination-previous">Anterior</a>
-  <a (click)="navigate(1)" class="pagination-next">Próximo</a>
+  <button [disabled]="pessoas.first" (click)="navigate(-1)" class="pagination-previous">Anterior</button>
+  <button [disabled]="pessoas.last" (click)="navigate(1)" class="pagination-next">Próximo</button>
   <ul class="pagination-list">
     <li>
-      <a class="pagination-link" [attr.aria-labelledby]="'Goto page pessoas.totalPages'">{{pessoas.totalPages}}</a>
+      <a class="pagination-link" [attr.aria-labelledby]="'Goto page pessoas.totalPages'">{{pessoas.number + 1}} de {{pessoas.totalPages}}</a>
     </li>
   </ul>
 </nav>
