@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Pessoa} from '../models/pessoa/pessoa';
+import {Pessoa} from '../../models/pessoa/pessoa';
 
 @Component({
   selector: 'app-pessoa-view',
